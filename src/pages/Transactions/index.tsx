@@ -1,24 +1,25 @@
-import { useContext } from 'react'
 import Header from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { TransactionContext } from '../../contexts/TransactionsContexts'
 import { dateFormatter, priceFormatter } from '../../utils/formatter'
 import { SearchForm } from './components/SearchForm'
-import {
+  import {
   PriceHighlight,
   TransactionsContainer,
   TransactionsTable,
 } from './styles'
+import { useContext } from 'react'
+import { Filters } from './components/Filters/Filters'
 
 export function Transactions() {
   const { transactions } = useContext(TransactionContext)
-
   return (
     <div>
       <Header />
       <Summary />
       <TransactionsContainer>
         <SearchForm />
+        <Filters />
         <TransactionsTable>
           <tbody>
             {transactions.map((transaction) => {
